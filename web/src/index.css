@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 246 247 251;
+  --card: 255 255 255;
+  --alt: 241 244 249;
+  --line: 228 232 240;
+  --ink: 15 23 42;
+  --ink2: 91 107 130;
+  --ink3: 148 163 184;
+  --brand: 99 102 241;
+  --pink: 236 72 153;
+  --green: 16 185 129;
+  --amber: 245 158 11;
+  --red: 239 68 68;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: 7 11 20;
+  --card: 17 24 39;
+  --alt: 27 36 51;
+  --line: 38 50 68;
+  --ink: 241 245 249;
+  --ink2: 164 178 197;
+  --ink3: 107 123 145;
+  --brand: 129 140 248;
+  --pink: 244 114 182;
+  --green: 52 211 153;
+  --amber: 251 191 36;
+  --red: 248 113 113;
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-canvas text-ink antialiased;
+  font-feature-settings: 'cv11';
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--line)) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgb(var(--line));
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-card;
+  }
+
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas;
+  }
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: transparent;
+  height: 22px;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: rgb(var(--line));
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 18px;
+  width: 18px;
+  margin-top: -6px;
+  border-radius: 999px;
+  background: rgb(var(--brand));
+  border: 3px solid rgb(var(--card));
+  box-shadow: 0 1px 5px rgb(0 0 0 / 0.3);
+  cursor: grab;
+  transition: transform 120ms ease;
+}
+
+input[type='range']:active::-webkit-slider-thumb {
+  cursor: grabbing;
+  transform: scale(1.08);
+}
+
+input[type='range']:disabled::-webkit-slider-thumb {
+  background: rgb(var(--ink3));
+  cursor: not-allowed;
+}
+
+input[type='range']::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: rgb(var(--line));
+}
+
+input[type='range']::-moz-range-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 999px;
+  background: rgb(var(--brand));
+  border: 3px solid rgb(var(--card));
+  cursor: grab;
+}
+
+.checker {
+  background-image:
+    linear-gradient(45deg, rgb(var(--alt)) 25%, transparent 25%),
+    linear-gradient(-45deg, rgb(var(--alt)) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgb(var(--alt)) 75%),
+    linear-gradient(-45deg, transparent 75%, rgb(var(--alt)) 75%);
+  background-size: 18px 18px;
+  background-position: 0 0, 0 9px, 9px -9px, -9px 0;
+}
+
+.grid-fade {
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}

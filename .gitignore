@@ -1,0 +1,35 @@
+# Dependencies and build output
+node_modules/
+dist/
+coverage/
+*.log
+
+# API runtime data (local library index and cached thumbnails)
+api/data/*.db
+api/data/*.db-*
+api/data/*.db-wal
+api/data/*.db-shm
+api/data/thumbs/
+api/data/tmp/
+
+# Local environment overrides. This project calls no external services, but keep
+# the rule so nothing local ever sneaks into a commit.
+.env
+.env.*
+!.env.example
+
+# Reference copy of the Android app: never commit its build cache or binaries
+reference/flutter/.dart_tool/
+reference/flutter/build/
+reference/flutter/.flutter-plugins-dependencies
+reference/flutter/.idea/
+*.apk
+*.aab
+*.jks
+*.keystore
+
+# Editors and OS noise
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
