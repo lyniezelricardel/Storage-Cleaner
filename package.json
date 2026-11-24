@@ -4,17 +4,17 @@
   "private": true,
   "description": "Web version of Mobile Storage Cleaner. Finds blurry photos, duplicate groups, enhances soft shots, and manages a Recently Deleted folder, all against a folder you choose in the browser.",
   "workspaces": [
-    "web",
-    "api"
+    "frontend",
+    "backend"
   ],
   "scripts": {
-    "dev": "concurrently -n api,web -c magenta,cyan \"npm:dev:api\" \"npm:dev:web\"",
-    "dev:api": "npm --workspace api run dev",
-    "dev:web": "npm --workspace web run dev",
-    "build": "npm --workspace web run build",
-    "start": "npm --workspace api run start",
-    "test": "npm --workspace web run test && npm --workspace api run test",
-    "typecheck": "npm --workspace web run typecheck && npm --workspace api run typecheck"
+    "dev": "concurrently -n backend,frontend -c magenta,cyan \"npm:dev:backend\" \"npm:dev:frontend\"",
+    "dev:backend": "npm --workspace backend run dev",
+    "dev:frontend": "npm --workspace frontend run dev",
+    "build": "npm --workspace frontend run build",
+    "start": "npm --workspace backend run start",
+    "test": "npm --workspace frontend run test && npm --workspace backend run test",
+    "typecheck": "npm --workspace frontend run typecheck && npm --workspace backend run typecheck"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"

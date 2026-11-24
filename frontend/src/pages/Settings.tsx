@@ -228,7 +228,7 @@ export default function Settings(): ReactNode {
             <p className="flex items-start gap-2">
               <Icon name="shield" size={15} className="mt-0.5 shrink-0 text-brand" />
               Originals never leave this machine. The local API on port 8787 stores metadata and
-              thumbnails in SQLite and api/data/thumbs.
+              thumbnails in SQLite and backend/data/thumbs.
             </p>
             <p className="flex items-start gap-2">
               <Icon name="info" size={15} className="mt-0.5 shrink-0 text-ink3" />
@@ -271,7 +271,7 @@ export default function Settings(): ReactNode {
             variant="ghost"
             icon="info"
             onClick={() =>
-              toast('Removing api/data/app.db also resets the index. Stop the API first.', 'info')
+              toast('Removing backend/data/app.db also resets the index. Stop the API first.', 'info')
             }
           >
             Reset database

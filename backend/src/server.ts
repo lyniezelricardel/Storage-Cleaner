@@ -546,5 +546,5 @@ app.setErrorHandler((error, _request, reply) => {
 await app.listen({ port: PORT, host: '127.0.0.1' });
 console.log(`API listening on http://127.0.0.1:${PORT}`);
 if (!existsSync(WEB_DIST)) {
-  console.log('web/dist not built yet - run `npm run dev` and use the Vite server on 5173');
+  console.log('frontend/dist not built yet - run `npm run dev` and use the Vite server on 5173');
 }

@@ -51,8 +51,8 @@ photos, so the full scan → group → enhance → trash pipeline works without 
 ### Production build
 
 ```bash
-npm run build   # builds web/dist
-npm start       # API also serves web/dist
+npm run build   # builds frontend/dist
+npm start       # API also serves frontend/dist
 ```
 
 Then open <http://127.0.0.1:8787>. The API falls back to a single-page-app handler, so deep
@@ -63,7 +63,7 @@ links such as `/duplicates` work.
 | Script | What it does |
 | --- | --- |
 | `npm run dev` | API + Vite dev server together |
-| `npm run build` | Production build of the web app into `web/dist` |
+| `npm run build` | Production build of the web app into `frontend/dist` |
 | `npm start` | Run the API and serve the built web app |
 | `npm test` | 24 web tests (Vitest) + 6 grouping tests (`node:test`) |
 | `npm run typecheck` | TypeScript for both workspaces |
@@ -114,16 +114,16 @@ for the index, duplicate grouping and serving thumbnails.
   after a reload; the app shows a banner with a **Reconnect folder** button. The index remains
   browsable in the meantime.
 - Single local user, no authentication. Do not expose port 8787 to a network.
-- The library index (SQLite + thumbnails) lives in `api/data/` and is git-ignored. The photos
+- The library index (SQLite + thumbnails) lives in `backend/data/` and is git-ignored. The photos
   themselves always stay in the folder you chose.
 
 ## Project layout
 
 ```text
-web/                React 18 + Vite + Tailwind front end
+frontend/           React 18 + Vite + Tailwind front end
   src/lib/          folder access, analysis, imaging math, worker, API client
   src/pages/        Dashboard, Blurry, Duplicates, Enhance, Trash, Settings
-api/                Fastify + node:sqlite index and static serving
+backend/            Fastify + node:sqlite index and static serving
   src/db.ts         schema and row mapping
   src/grouping.ts   dHash grouping and BEST selection
   src/server.ts     REST endpoints, thumbnails, SPA fallback
@@ -138,5 +138,5 @@ for the ported pixel math and UX. See `reference/README.md` for details.
 - **Settings → Clear index** removes indexed photo rows and cached thumbnails; files are
   untouched, the folder stays connected, and Recently Deleted entries remain.
 - **Settings → Forget folder** also drops the stored folder handle.
-- To reset everything manually, stop the API and delete `api/data/app.db*` and
-  `api/data/thumbs/`. The next scan rebuilds the index.
+- To reset everything manually, stop the API and delete `backend/data/app.db*` and
+  `backend/data/thumbs/`. The next scan rebuilds the index.

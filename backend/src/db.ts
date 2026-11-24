@@ -7,7 +7,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 
 export const DATA_DIR = path.resolve(here, '..', 'data');
 export const THUMB_DIR = path.join(DATA_DIR, 'thumbs');
-export const WEB_DIST = path.resolve(here, '..', '..', 'web', 'dist');
+export const WEB_DIST = path.resolve(here, '..', '..', 'frontend', 'dist');
 
 mkdirSync(THUMB_DIR, { recursive: true });
 

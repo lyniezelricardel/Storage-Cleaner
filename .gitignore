@@ -4,13 +4,13 @@ dist/
 coverage/
 *.log
 
-# API runtime data (local library index and cached thumbnails)
-api/data/*.db
-api/data/*.db-*
-api/data/*.db-wal
-api/data/*.db-shm
-api/data/thumbs/
-api/data/tmp/
+# Backend runtime data (local library index and cached thumbnails)
+backend/data/*.db
+backend/data/*.db-*
+backend/data/*.db-wal
+backend/data/*.db-shm
+backend/data/thumbs/
+backend/data/tmp/
 
 # Local environment overrides. This project calls no external services, but keep
 # the rule so nothing local ever sneaks into a commit.
